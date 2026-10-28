@@ -13,9 +13,6 @@ kakaria.r@northeastern.edu
 
 Dumebi Onyebuchi 
 onyebuchi.c@northeastern.edu 
-  
-Yi (Suzy) Xu 
-xu.yi7@northeastern.edu 
 
 **Project description:**
 

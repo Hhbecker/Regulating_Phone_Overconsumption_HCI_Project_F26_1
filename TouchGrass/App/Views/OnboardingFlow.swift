@@ -22,28 +22,63 @@ struct OnboardingFlow: View {
     }
 }
 
+import SwiftUI
+
 struct WelcomeView: View {
     var onContinue: () -> Void
-
+    
     var body: some View {
-        VStack(alignment: .leading, spacing: 20) {
-            Spacer()
-            Image(systemName: "leaf.fill")
-                .font(.system(size: 56))
-                .foregroundStyle(Color.tgForest)
-            Text("TouchGrass")
-                .font(.system(size: 44, weight: .bold, design: .rounded))
-                .foregroundStyle(Color.tgInk)
-            Text("Put a small obstacle between you and the apps you scroll too much. You choose the obstacles and when they kick in.")
-                .font(.title3)
-                .foregroundStyle(Color.tgMuted)
-            Spacer()
-            Button("Get started", action: onContinue)
-                .buttonStyle(TGPrimaryButtonStyle())
+        ZStack(alignment: .bottom) {
+            Color.tgMint.ignoresSafeArea()
+
+            // Decorative layer, kept separate from the buttons
+            Image("GrassIllustration")
+                .resizable()
+                .scaledToFill()
+                .frame(maxWidth: .infinity)
+                .frame(height: 220)
+                .clipped()
+                .ignoresSafeArea(edges: .bottom)
+                .allowsHitTesting(false)
+                .accessibilityHidden(true)
+
+            VStack(alignment: .leading, spacing: 28) {
+                VStack(alignment: .leading, spacing: 16) {
+                    Text("TouchGrass")
+                        .font(.system(size: 46, weight: .bold))   // Outfit in the prototype
+                    Text("Welcome to TouchGrass, look through our menu of digital obstacles, then choose which social media apps to apply them to.")
+                        .font(.system(size: 21, weight: .medium))
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+
+                SetupAgendaCard()
+
+                Spacer(minLength: 0)
+
+                VStack(spacing: 12) {
+                    Button("Get started", action: onContinue)
+                        .buttonStyle(TGPrimaryButtonStyle())
+//                    NavigationLink(value: Route.obstacles) {
+//                        HStack(spacing: 10) {
+//                            Text("See the obstacles")
+//                            Image(systemName: "arrow.right")
+//                        }
+//                    }
+//                    .buttonStyle(TGPrimaryButtonStyle())
+
+//                    NavigationLink(value: Route.rules) {
+//                        Text("Skip to my rules")
+//                    }
+//                    .buttonStyle(SecondaryActionStyle())
+                }
+                .padding(.bottom, 168)   // keeps the buttons above the grass
+            }
+            .padding(.horizontal, 28)
+            .padding(.top, 40)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         }
-        .padding(24)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(Color.tgMint.ignoresSafeArea())
+        .foregroundStyle(Color.tgInk)
+        .toolbar(.hidden, for: .navigationBar)
     }
 }
 

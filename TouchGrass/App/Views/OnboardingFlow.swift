@@ -61,18 +61,6 @@ struct WelcomeView: View {
                 VStack(spacing: 12) {
                     Button("Get started", action: onContinue)
                         .buttonStyle(TGPrimaryButtonStyle())
-//                    NavigationLink(value: Route.obstacles) {
-//                        HStack(spacing: 10) {
-//                            Text("See the obstacles")
-//                            Image(systemName: "arrow.right")
-//                        }
-//                    }
-//                    .buttonStyle(TGPrimaryButtonStyle())
-
-//                    NavigationLink(value: Route.rules) {
-//                        Text("Skip to my rules")
-//                    }
-//                    .buttonStyle(SecondaryActionStyle())
                 }
                 .padding(.bottom, 168)   // keeps the buttons above the grass
             }

@@ -36,6 +36,10 @@ struct HomeView: View {
                 Section {
                     NavigationLink("Try the obstacles") { ObstacleMenuView() }
                 }
+                
+                Section {
+                    NavigationLink("Go home") { OnboardingFlow() }
+                }
             }
             .scrollContentBackground(.hidden)
             .background(Color.tgMint.ignoresSafeArea())

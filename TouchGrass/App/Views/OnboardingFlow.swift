@@ -32,15 +32,18 @@ struct WelcomeView: View {
             Color.tgMint.ignoresSafeArea()
 
             // Decorative layer, kept separate from the buttons
-            Image("GrassIllustration")
-                .resizable()
-                .scaledToFill()
-                .frame(maxWidth: .infinity)
-                .frame(height: 220)
-                .clipped()
-                .ignoresSafeArea(edges: .bottom)
-                .allowsHitTesting(false)
-                .accessibilityHidden(true)
+            Color.clear
+                .overlay(alignment: .bottom) {
+                    Image("GrassIllustration")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 220)
+                        .clipped()
+                        .accessibilityHidden(true)
+                }
+                .ignoresSafeArea()
+                .allowsHitTesting(false) 
 
             VStack(alignment: .leading, spacing: 28) {
                 VStack(alignment: .leading, spacing: 16) {
